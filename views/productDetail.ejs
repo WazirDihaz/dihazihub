@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= product.name %> - Details</title>
+  <link rel="stylesheet" href="/css/style.css"> <!-- external CSS -->
+</head>
+<body>
+
+<div class="dihaz-checkout-page">
+
+<div class="container">
+  <div class="product-detail">
+
+    <!-- Product Image -->
+    <img src="/upload/<%= product.image %>" alt="<%= product.name %>">
+
+    <!-- Product Info -->
+    <div class="info">
+      <h1><%= product.name %></h1>
+      <p class="price">Rs <%= product.price %></p>
+      <p class="description"><%= product.description %></p>
+      <button type="submit" class="btn">Add to Cart</button>
+      <form action="/add-to-cart" method="POST">
+        <input type="hidden" name="productId" value="<%= product.id %>">
+        <button type="submit" class="btn">Add to Cart</button>
+      </form>
+
+      <div class="payment-section">
+        <h2>Send Payment First</h2>
+        <p class="payment-msg">
+          Send payment to EasyPaisa: <b>0340-5767169</b>
+        </p>
+
+        <form action="/checkout" method="POST" enctype="multipart/form-data" class="payment-form">
+          <input type="text" name="customerName" placeholder="Your Name" required>
+          <input type="text" name="contactNumber" placeholder="Phone Number" required>
+          <input type="text" name="transactionId" placeholder="Transaction ID" required>
+          <input type="file" name="screenshot" required>
+          <button type="submit" class="submit-btn">Submit Order</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+</body>
+</html>

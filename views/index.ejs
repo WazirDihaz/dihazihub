@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shalajit Home</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Dihazihub</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Slider -->
+   <div class="main">
+     
+    <div class="slider">
+    <% images.forEach((img, index) => { %>
+         
+      <img src="<%= img %>" class="slide <%= index === 0 ? 'active' : '' %>">
+    <% }) %>
+  </div>
+  <div class="left" style="padding: 50px; font-family: Arial, sans-serif;">
+  <!-- Main heading -->
+  <h1 style="font-size: 48px;color: #fffdfd; margin-bottom: 20px;">Discover the Power of Pure Shilajit</h1>
+  
+  <!-- Short description -->
+  <p style="font-size: 20px; color: #ffffff; margin-bottom: 30px;">
+    We provide the finest natural Shilajit sourced from the Himalayas and Gilgit-Baltistan.
+  </p>
+
+  <!-- Dynamic text section -->
+  <h2 style="font-size: 32px; color: #fffdfd;">
+    We Offer <span id="dynamic-text" class="dyn" style="color: #d2691e; font-weight: bold;"></span>
+  </h2>
+</div>
+  </div>
+
+<div class="container">
+
+  <h1 style="text-align: center; color: white;">All Products</h1>
+
+  <div class="grid">
+
+    <% products.forEach(p => { %>
+      <a href="/product/<%= p.id %>" class="card-link">
+        <div class="card">
+          <img src="/upload/<%= p.image %>" alt="<%= p.name %>">
+          <h3><%= p.name %></h3>
+          <p><%= p.description %></p>
+          <p class="price">Rs <%= p.price %></p>
+          <button type="submit" class="btn">Add to Cart</button>
+        </div>
+      </a>
+    <% }) %>
+
+  </div>
+</div>
+
+<!-- About Section -->
+<section id="about-section">
+  <div class="about-overlay">
+    <div class="about-content">
+      <h2>Why Choose Our Shilajit?</h2>
+      <p>Experience the purity and power of natural Shilajit, sourced from the high Himalayan mountains. Our products are carefully harvested, naturally purified, and packed to retain all essential minerals. Choose quality, authenticity, and wellness in every jar.</p>
+
+      <div class="about-cards">
+        
+        <div class="about-card">
+          <div class="icon">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <h3 class="trusted-title">Pure & Natural</h3>
+          <p class="trusted-text">Collected from high mountains, purified naturally to retain minerals.</p>
+        </div>
+        
+        <div class="about-card">
+          <div class="icon">
+            <i class="fas fa-medal"></i>
+          </div>
+          <h3 class="trusted-title">Premium Quality</h3>
+          <p class="trusted-text">Only authentic Gilgiti, Himalayan, and Kashmir resin is selected.</p>
+        </div>
+        
+        <div class="about-card">
+          <div class="icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+         <h3 class="trusted-title">Trusted Supplier</h3>
+  <p class="trusted-text">Years of experience providing top-quality Shilajit worldwide.</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<section id="features">
+  <h2>Benefits of Our Shilajit</h2>
+  <div class="feature-cards">
+    <div class="feature-card">
+      <i class="fas fa-bolt"></i>
+      <h3>Boosts Energy</h3>
+      <p>Provides natural energy and helps fight fatigue.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-leaf"></i>
+      <h3>Rich in Minerals</h3>
+      <p>Loaded with essential minerals for overall health.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-heart"></i>
+      <h3>Supports Wellness</h3>
+      <p>Enhances immunity, vitality, and general wellbeing.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-certificate"></i>
+      <h3>100% Pure</h3>
+      <p>Authentic Gilgiti, Himalayan, and Kashmir Shilajit.</p>
+    </div>
+     <div class="feature-card">
+      <i class="fas fa-certificate"></i>
+      <h3>strong like balti</h3>
+      <p>Authentic Gilgiti, Himalayan, and Kashmir Shilajit.</p>
+    </div>
+     <div class="feature-card">
+      <i class="fas fa-certificate"></i>
+      <h3>dasi shalajeet</h3>
+      <p>Authentic Gilgiti, Himalayan, and Kashmir Shilajit.</p>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="cta-content">
+    <h2>Get Exclusive Offers</h2>
+    <p>Subscribe to our newsletter and never miss a Shilajit update!</p>
+   <form action="/subscribe" method="POST">
+  <label for="shilajit-type">Which type of Shilajit are you interested in?</label>
+  <select name="shilajit_type" id="shilajit-type" required>
+    <option value="">Select Type</option>
+    <option value="Gilgiti">Gilgiti Shilajit</option>
+    <option value="Himalayan">Himalayan Shilajit</option>
+    <option value="Baltistan">Baltistan Shilajit</option>
+    <option value="Karakoram">Karakoram Shilajit</option>
+    <option value="Pure Natural">Pure Natural Shilajit</option>
+    <option value="Kashmiri">Kashmiri Shilajit</option>
+  </select>
+  
+  <input type="email" name="email" placeholder="Your Email" required>
+  <button type="submit">Subscribe</button>
+</form>
+
+  </div>
+</section>
+<!-- Simple Footer Start -->
+<footer class="simple-footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h2>DihaziHub</h2>
+      <p>Gilgit Baltistan Shalajeet</p>
+    </div>
+    <div class="footer-social">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      </a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
+      </a>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2026 DihaziHub. All Rights Reserved.</p>
+</footer>
+
+<!-- CSS -->
+
+
+  <script src="/js/slider.js"></script>
+</body>
+</html>

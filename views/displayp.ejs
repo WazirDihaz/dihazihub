@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Products</title>
+ <link rel="stylesheet" href="/css/style.css">
+<style>
+
+
+.price{
+ color:green;
+ font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 style="text-align: center;">All dffProducts</h1>
+
+<div class="grid">
+
+<% products.forEach(p => { %>
+
+<div class="card">
+
+<img src="/upload/<%= p.image %>">
+<button >Add Product</button>
+<h3><%= p.name %></h3>
+
+<p><%= p.description %></p>
+
+<p class="price">Rs <%= p.price %></p>
+
+
+</div>
+
+<% }) %>
+
+</div>
+</div>
+
+</body>
+</html>

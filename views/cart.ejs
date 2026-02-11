@@ -1,0 +1,6 @@
+<h1>Your Cart</h1>
+<ul>
+  <% cartItems.forEach(item => { %>
+    <li><%= item.name %> - Quantity: <%= item.quantity %> - Price: $<%= item.price %></li>
+  <% }) %>
+</ul>
