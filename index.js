@@ -14,6 +14,11 @@ app.use('/', productRoutes);
 
 app.use(express.static('public')); // for css, js, images
 
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Server running...");
+});
 
 
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+
