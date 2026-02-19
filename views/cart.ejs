@@ -1,6 +1,88 @@
 <h1>Your Cart</h1>
-<ul>
-  <% cartItems.forEach(item => { %>
-    <li><%= item.name %> - Quantity: <%= item.quantity %> - Price: $<%= item.price %></li>
-  <% }) %>
-</ul>
+
+<div class="cart-container">
+  <% if(cartItems.length === 0){ %>
+    <p class="empty-cart">Your cart is empty.</p>
+  <% } else { %>
+    <ul class="cart-list">
+      <% cartItems.forEach(item => { %>
+        <li class="cart-item">
+          <div class="item-info">
+            <span class="item-name"><%= item.name %></span>
+            <span class="item-quantity">Qty: <%= item.quantity %></span>
+          </div>
+          <div class="item-price">$<%= item.price %></div>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</div>
+
+<style>
+  /* Container */
+  .cart-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  /* Empty cart */
+  .empty-cart {
+    text-align: center;
+    color: #888;
+    font-size: 1.1rem;
+  }
+
+  /* List */
+  .cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+  }
+
+  .cart-item:hover {
+    background-color: #f9f9f9;
+  }
+
+  .item-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+  }
+
+  .item-quantity {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 3px;
+  }
+
+  .item-price {
+    font-weight: 600;
+    color: #1a73e8; /* blue price */
+  }
+</style>
+

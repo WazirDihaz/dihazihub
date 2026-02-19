@@ -16,7 +16,7 @@ router.post('/productsumit', upload.single('image'), (req, res) => {
     'INSERT INTO products (name, price, description, image) VALUES (?, ?, ?, ?)',
     [name, price, description, image],
     (err, result) => {
-      if (err) return res.send('Error saving product');
+      if (err) return  res.send(err.message);;
       res.send('Product saved to database!');
     }
   );
@@ -59,7 +59,7 @@ router.get('/product/:id', (req, res) => {
     'SELECT * FROM products WHERE id = ?',
     [productId],
     (err, result) => {
-      if (err) return res.send('Database error');
+      if (err)  return res.send('Database error');
       res.render('productDetail', { product: result[0] });
     }
   );

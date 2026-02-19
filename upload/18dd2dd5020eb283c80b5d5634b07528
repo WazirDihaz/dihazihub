@@ -1,0 +1,6 @@
+﻿5::t            ; Press 5 → types T
+6::y            ; Press 6 → types Y
+1::CapsLock     ; Press 1 → acts as CapsLock
+0::Backspace    ; Press 0 → acts as Backspace
+2::Shift        ; Press 2 → acts as Shift
+
